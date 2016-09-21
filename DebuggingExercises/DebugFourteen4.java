@@ -21,7 +21,7 @@ public class DebugFourteen4 extends JFrame implements ItemListener
    int totalPrice = 0;
    final int HIGH_PRICE = 3;
    final int LOW_PRICE = 2;
-   public FixDebugFourteen4()
+   public DebugFourteen4()
    {
       super("Beverage Selector");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,15 +29,19 @@ public class DebugFourteen4 extends JFrame implements ItemListener
       add(cola);
       cola.addItemListener(this);
       add(lemon);
+      lemon.addItemListener(this);
       add(tea);
       tea.addItemListener(this);
       add(milk);
       milk.addItemListener(this);
+      add(coffee);
+      coffee.addItemListener(this);
       add(totPrice);
 
       drinkGrp.add(cola);
       drinkGrp.add(lemon);
       drinkGrp.add(milk);
+      drinkGrp.add(tea);
       drinkGrp.add(coffee);
       totPrice.setText("0");
    }
@@ -51,7 +55,7 @@ public class DebugFourteen4 extends JFrame implements ItemListener
    public void itemStateChanged(ItemEvent check)
    {
       Object source = check.getItem();
-      if(source == cola && source == milk)
+      if(source == cola || source == milk)
       {
          totPrice.setText("$" + HIGH_PRICE);
       }
